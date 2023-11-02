@@ -42,6 +42,12 @@ List<String> remamber = <String>[
   "Passwort vergessen?"
 ];
 
+List<String> skip = <String>[
+  "Pokračovať bez účtu",
+  "Guest Login",
+  "Weiter ohne Konto"
+];
+
 class _SignInPageState extends State<SignInPage> {
   bool isPasswordVisible = true;
   final TextEditingController emailController = TextEditingController();
@@ -298,6 +304,23 @@ class _SignInPageState extends State<SignInPage> {
                       height: 65,
                     ),
                   ],
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (context) => DriverWebPage(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    skip[widget.v],
+                    style: kBodyText.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ],
             ),
